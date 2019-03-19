@@ -36,6 +36,11 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.broadcastradio</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
         <version>2.4</version>
@@ -65,19 +70,19 @@
     <hal format="hidl">
         <name>android.hardware.drm</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>ICryptoFactory</name>
+            <instance>clearkey</instance>
             <instance>default</instance>
+            <instance>widevine</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
+            <instance>clearkey</instance>
             <instance>default</instance>
+            <instance>widevine</instance>
         </interface>
-        <fqname>@1.1::ICryptoFactory/clearkey</fqname>
-        <fqname>@1.1::IDrmFactory/clearkey</fqname>
-        <fqname>@1.1::ICryptoFactory/widevine</fqname>
-        <fqname>@1.1::IDrmFactory/widevine</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
@@ -208,13 +213,14 @@
         </interface>
     </hal>
     <hal format="hidl">
-       <name>android.hardware.radio.config</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-       <interface>
-           <name>IRadioConfig</name>
-           <instance>radioconfig</instance>
-       </interface>
+        <name>android.hardware.radio.config</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IRadioConfig</name>
+            <instance>default</instance>
+       <!-- <instance>radioconfig</instance> in oreo-->
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.renderscript</name>
@@ -226,14 +232,14 @@
         </interface>
     </hal>
     <hal format="hidl">
-       <name>android.hardware.secure_element</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-       <interface>
-           <name>ISecureElement</name>
-           <instance>SIM1</instance>
-           <instance>SIM2</instance>
-       </interface>
+        <name>android.hardware.secure_element</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISecureElement</name>
+            <instance>SIM1</instance>
+            <instance>SIM2</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.sensors</name>
@@ -265,7 +271,7 @@
     <hal format="hidl">
         <name>android.hardware.tetheroffload.control</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IOffloadControl</name>
             <instance>default</instance>
@@ -317,29 +323,11 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.wifi.hostapd</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IHostapd</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.wifi.supplicant</name>
         <transport>hwbinder</transport>
         <version>1.1</version>
         <interface>
             <name>ISupplicant</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>com.qualcomm.qti.ant</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAntHci</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -393,24 +381,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>com.quicinc.cne.api</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IApiService</name>
-            <instance>cnd</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>com.quicinc.cne.server</name>
-        <transport>hwbinder</transport>
-        <version>2.2</version>
-        <interface>
-            <name>IServer</name>
-            <instance>cnd</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.display.color</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -443,6 +413,37 @@
         <version>1.0</version>
         <interface>
             <name>IGoodixBiometricsFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lineage.livedisplay</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IDisplayModes</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IPictureAdjustment</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lineage.power</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILineagePower</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lineage.trust</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IUsbRestrict</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -528,6 +529,11 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.iop</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>2.0</version>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -566,15 +572,6 @@
             <name>IQcRilAudio</name>
             <instance>slot1</instance>
             <instance>slot2</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.radio.atcmdfwd</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAtCmdFwd</name>
-            <instance>AtCmdFwdService</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -658,23 +655,14 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.tui_comm</name>
+        <name>vendor.qti.ims.callinfo</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>ITuiComm</name>
+            <name>IService</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-       <name>vendor.qti.ims.callinfo</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-      <interface>
-         <name>IService</name>
-         <instance>default</instance>
-       </interface>
-   </hal>
     <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
         <transport>hwbinder</transport>
@@ -684,38 +672,63 @@
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
+
+<!-- Hals below not autodetected. But i added it manually for further proceedings-->
     <hal format="hidl">
-        <name>vendor.lineage.livedisplay</name>
+        <name>android.hardware.wifi.hostapd</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>1.0</version>
         <interface>
-            <name>IDisplayModes</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IPictureAdjustment</name>
+            <name>IHostapd</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.lineage.power</name>
+        <name>com.qualcomm.qti.ant</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>ILineagePower</name>
+            <name>IAntHci</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.lineage.trust</name>
+        <name>com.quicinc.cne.api</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IApiService</name>
+            <instance>cnd</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>com.quicinc.cne.server</name>
+        <transport>hwbinder</transport>
+        <version>2.2</version>
+        <interface>
+            <name>IServer</name>
+            <instance>cnd</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.atcmdfwd</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IUsbRestrict</name>
+            <name>IAtCmdFwd</name>
+            <instance>AtCmdFwdService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.tui_comm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITuiComm</name>
             <instance>default</instance>
         </interface>
     </hal>
     <sepolicy>
-        <version>27.0</version>
+        <version>28.0</version>
     </sepolicy>
 </manifest>

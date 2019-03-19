@@ -110,6 +110,7 @@ vendor/lib64/libbtnv.so
 
 # Camera
 vendor/lib/hw/camera.sdm660.so
+vendor/lib/libUBWC.so
 vendor/lib/libarcsoft_arc3dnr_intf.so
 vendor/lib/libarcsoft_arcshdr_intf.so
 vendor/lib/libarcsoft_beautyshot.so
@@ -149,20 +150,20 @@ vendor/lib/libmmcamera_eebinparse.so
 vendor/lib/libmmcamera_eeprom_util.so
 vendor/lib/libmmcamera_eztune_module.so
 vendor/lib/libmmcamera_facedetection_lib.so
-vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_gc5025_ofilm_13m.so
 vendor/lib/libmmcamera_gc5025_ofilm_13m_fm24c64d_eeprom.so
 vendor/lib/libmmcamera_gc5025_ofilm_16m.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
+vendor/lib/libmmcamera_hi1333_ofilm_13m.so
+vendor/lib/libmmcamera_hi1333_ofilm_13m_fm24c64d_eeprom.so
 vendor/lib/libmmcamera_hi556_holitech_13m.so
 vendor/lib/libmmcamera_hi556_holitech_13m_fm24c64d_eeprom.so
 vendor/lib/libmmcamera_hi556_holitech_16m.so
 vendor/lib/libmmcamera_hi846_kingcome_front.so
 vendor/lib/libmmcamera_hi846_tsp_front.so
 vendor/lib/libmmcamera_hi846_tsp_front_eeprom.so
-vendor/lib/libmmcamera_hi1333_ofilm_13m.so
-vendor/lib/libmmcamera_hi1333_ofilm_13m_fm24c64d_eeprom.so
 vendor/lib/libmmcamera_hvx_add_constant.so
 vendor/lib/libmmcamera_hvx_grid_sum.so
 vendor/lib/libmmcamera_imglib.so
@@ -267,9 +268,12 @@ vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
+vendor/lib/libstreamparser.so
 vendor/lib/libts_detected_face_hal.so
 vendor/lib/libts_face_beautify_hal.so
 vendor/lib/libvideoutils.so
+vendor/lib64/libUBWC.so
+vendor/lib64/libstreamparser.so
 
 # Camera configs
 vendor/etc/camera/camera_config.xml
@@ -774,13 +778,6 @@ vendor/etc/qdcm_calib_data_nt36672_1080p_video_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_nt36672_1080p_video_mode_dsi_txd_panel.xml
 vendor/etc/qdcm_calib_data_td4310_1080p_video_mode_dsi_txd_panel.xml
 
-# Display firmware (Novatek)
-vendor/firmware/novatek_ts_fw_dj.bin
-vendor/firmware/novatek_ts_fw_txd.bin
-
-# Display firmware (Synaptics)
-vendor/firmware/startup_fw_update.img
-
 # DPM
 bin/dpmd
 etc/dpm/dpm.conf
@@ -801,10 +798,21 @@ vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib64/libdpmqmihal.so
 
 # DRM
+lib/libGPTEE_system.so
+lib/libQTEEConnector_system.so
+lib/vendor.qti.hardware.qteeconnector@1.0.so
+lib64/libGPTEE_system.so
+lib64/libQTEEConnector_system.so
+lib64/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
 vendor/bin/qseecomd
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib/libGPTEE_vendor.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libQSEEComAPI.so
+vendor/lib/libQTEEConnector_vendor.so
 vendor/lib/libbase64.so
 vendor/lib/libcppf.so
 vendor/lib/libdrmfs.so
@@ -820,9 +828,13 @@ vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
 vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
+vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/libbase64.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
@@ -833,6 +845,7 @@ vendor/lib64/librpmb.so
 vendor/lib64/libsdedrm.so
 vendor/lib64/libsi.so
 vendor/lib64/libssd.so
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # DRM (Widevine)
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
@@ -1168,24 +1181,6 @@ vendor/lib64/libqmiservices.so
 vendor/lib64/libqrtr.so
 vendor/lib64/libqsocket.so
 
-# QTEE
-lib/libGPTEE_system.so
-lib/libQTEEConnector_system.so
-lib/vendor.qti.hardware.qteeconnector@1.0.so
-lib64/libGPTEE_system.so
-lib64/libQTEEConnector_system.so
-lib64/vendor.qti.hardware.qteeconnector@1.0.so
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
-
 # Radio
 -app/CallFeaturesSetting/CallFeaturesSetting.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
@@ -1332,16 +1327,15 @@ vendor/bin/thermal-engine
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
+# Touch firmwares
+vendor/firmware/novatek_ts_fw_dj.bin
+vendor/firmware/novatek_ts_fw_txd.bin
+vendor/firmware/startup_fw_update.img
+
 # Time services
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
-
-# Universal Bandwidth Compression (UBWC)
-vendor/lib/libstreamparser.so
-vendor/lib/libUBWC.so
-vendor/lib64/libstreamparser.so
-vendor/lib64/libUBWC.so
 
 # Widevine firmware
 vendor/firmware/widevine.b00

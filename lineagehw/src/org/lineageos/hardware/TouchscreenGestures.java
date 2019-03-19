@@ -65,7 +65,7 @@ public class TouchscreenGestures {
         new TouchscreenGesture(3, "Letter V", 252),
         new TouchscreenGesture(4, "Letter W", 253),
         new TouchscreenGesture(5, "Letter Z", 254),
-        new TouchscreenGesture(6, "Swipe Up", 248),
+        new TouchscreenGesture(6, "Swipe Up", 255),
     };
 
     public static final int[] ALL_GESTURE_MASKS = {

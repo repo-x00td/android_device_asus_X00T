@@ -131,11 +131,6 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
 
-# Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    cneapiclient \
-    com.quicinc.cne
-
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service

@@ -165,9 +165,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
-# Fingerprint feature
+# Fingerprint service
 PRODUCT_PACKAGES += \
-    fingerprintd \
     android.hardware.biometrics.fingerprint@2.1-service
 
 PRODUCT_COPY_FILES += \
@@ -190,9 +189,7 @@ PRODUCT_PACKAGES += \
     libgnsspps \
     libgps.utils \
     liblocation_api \
-    libloc_core \
-    libloc_pla \
-    libvehiclenetwork-native
+    libloc_core
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \

@@ -4,8 +4,12 @@ ifndef BOARD_VNDK_VERSION
 
 VNDK_SP_LIBRARIES := \
     libdexfile \
-    libartbase \
-    libziparchive
+    libpng \
+    libft2
+
+VNDK_SP_LIBRARIES += \
+    android.hardware.graphics.allocator@2.0 \
+    android.hidl.base@1.0_system
 
 ifdef PLATFORM_VNDK_VERSION
 vndk_sp_dir := vndk-sp-$(PLATFORM_VNDK_VERSION)

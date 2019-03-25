@@ -95,12 +95,12 @@ void vendor_check_variant()
     if (sys.totalram > 4096ull * 1024 * 1024) {
         // Russian model
         if (region == "RU") {
-            build_fingerprint = "asus/RU_X00TD/ASUS_X00T_9:8.1.0/OPM1/15.2016.1805.318-20180712:user/release-keys";
+            build_fingerprint = "asus/RU_X00TD/ASUS_X00T_9:8.1.0/OPM1/15.2016.1902.340-20190216:user/release-keys";
             product_device = "ASUS_X00T_9";
 
         // Global model
         } else {
-            build_fingerprint = "asus/WW_X00TD/ASUS_X00T_3:8.1.0/OPM1/15.2016.1805.318-20180712:user/release-keys";
+            build_fingerprint = "asus/WW_X00TD/ASUS_X00T_3:8.1.0/OPM1/15.2016.1902.340-20190216:user/release-keys";
             product_device = "ASUS_X00T_3";
         }
 
@@ -108,12 +108,12 @@ void vendor_check_variant()
     } else {
         // Russian model
         if (region == "RU") {
-            build_fingerprint = "asus/RU_X00TD/ASUS_X00T_6:8.1.0/OPM1/15.2016.1805.318-20180712:user/release-keys";
+            build_fingerprint = "asus/RU_X00TD/ASUS_X00T_6:8.1.0/OPM1/15.2016.1902.340-20190216:user/release-keys";
             product_device = "ASUS_X00T_6";
 
         // Global model
         } else {
-            build_fingerprint = "asus/WW_X00TD/ASUS_X00T_2:8.1.0/OPM1/15.2016.1805.318-20180712:user/release-keys";
+            build_fingerprint = "asus/WW_X00TD/ASUS_X00T_2:8.1.0/OPM1/15.2016.1902.340-20190216:user/release-keys";
             product_device = "ASUS_X00T_2";
         }
     }
@@ -121,11 +121,9 @@ void vendor_check_variant()
     // Product model overrides
     if (region == "RU" || region == "TW" ||
         (region == "PH" && sys.totalram > 3072ull * 1024 * 1024))
-        product_model = "ASUS_X00TDB";
-    else if (sys.totalram < 3072ull * 1024 * 1024)
-        product_model = "ASUS_X00TDA";
+        product_model = "ZB602KL";
     else
-        product_model = "ASUS_X00TD";
+        product_model = "ZB601KL";
 
     // Override props based on values set
     property_override_dual("ro.product.device", "ro.vendor.product.device", product_device);

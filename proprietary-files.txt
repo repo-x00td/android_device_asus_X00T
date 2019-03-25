@@ -1116,7 +1116,6 @@ vendor/bin/energy-awareness
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/bin/msm_irqbalance
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
-vendor/etc/perf/perfboostsconfig.xml
 vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-iopd-client.so

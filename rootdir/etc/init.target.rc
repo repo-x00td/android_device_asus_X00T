@@ -32,12 +32,9 @@ on init
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0
     write /dev/stune/background/schedtune.colocate 0
+    write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
-
-    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
-    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
-    write /sys/devices/virtual/graphics/fb0/idle_time 100
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -76,29 +73,27 @@ on boot
     start rfs_access
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
-    write /dev/cpuset/restricted/cpus 0-7
     ####Regionalization config and prop files####
-    chmod 0644 /persist/speccfg/spec
-    chmod 0644 /persist/speccfg/devicetype
-    chmod 0644 /persist/speccfg/mbnversion
-    chmod 0644 /persist/speccfg/.not_triggered
-    chmod 0644 /persist/speccfg/vendor_ro.prop
-    chmod 0644 /persist/speccfg/vendor_persist.prop
-    chmod 0644 /persist/speccfg/submask
-    chmod 0644 /persist/speccfg/partition
-    chown system system /persist/speccfg/spec
-    chown system system /persist/speccfg/devicetype
-    chown system system /persist/speccfg/mbnversion
-    chown system system /persist/speccfg/.not_triggered
-    chown system system /persist/speccfg/vendor_ro.prop
-    chown system system /persist/speccfg/vendor_persist.prop
-    chown system system /persist/speccfg/submask
-    chown system system /persist/speccfg/partition
+    chmod 0644 /mnt/vendor/persist/speccfg/spec
+    chmod 0644 /mnt/vendor/persist/speccfg/devicetype
+    chmod 0644 /mnt/vendor/persist/speccfg/mbnversion
+    chmod 0644 /mnt/vendor/persist/speccfg/.not_triggered
+    chmod 0644 /mnt/vendor/persist/speccfg/vendor_ro.prop
+    chmod 0644 /mnt/vendor/persist/speccfg/vendor_persist.prop
+    chmod 0644 /mnt/vendor/persist/speccfg/submask
+    chmod 0644 /mnt/vendor/persist/speccfg/partition
+    chown system system /mnt/vendor/persist/speccfg/spec
+    chown system system /mnt/vendor/persist/speccfg/devicetype
+    chown system system /mnt/vendor/persist/speccfg/mbnversion
+    chown system system /mnt/vendor/persist/speccfg/.not_triggered
+    chown system system /mnt/vendor/persist/speccfg/vendor_ro.prop
+    chown system system /mnt/vendor/persist/speccfg/vendor_persist.prop
+    chown system system /mnt/vendor/persist/speccfg/submask
+    chown system system /mnt/vendor/persist/speccfg/partition
 
-#Create folder dump yuv images while debugging
-    mkdir /data/vendor/camera 0770 camera camera
 
 #Huaqin add for sensors permission-ZQL1650-141 by chenyijun5 at 2018/2/1 start
     chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable
@@ -127,6 +122,9 @@ on boot
 #Huaqin add or ZQL1650-1072 by zhuqiang at 2018/04/23 start
     chown radio radio sys/module/stk3x1x/parameters/call_status_flag
 #Huaqin add for ZQL1650-1072 by zhuqiang at 2018/04/23 end
+
+#Create folder dump yuv images while debugging
+    mkdir /data/vendor/camera 0770 camera camera
 
 #Load WLAN driver
    chown wifi wifi /sys/module/wlan/parameters/fwpath
@@ -266,9 +264,6 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
-
-on property:sys.boot_completed=1
-    setprop sys.io.scheduler "bfq"
 
 on charger
     load_system_props

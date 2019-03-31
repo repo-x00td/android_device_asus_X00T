@@ -187,7 +187,7 @@ PRODUCT_PACKAGES += \
 
 # GPS Configs
 PRODUCT_PACKAGES += \
-    gps.conf \ 
+    gps.conf \
     apdr.conf \
     flp.conf \
     izat.conf \

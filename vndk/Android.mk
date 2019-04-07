@@ -7,9 +7,6 @@ VNDK_SP_LIBRARIES := \
     libpng \
     libft2
 
-VNDK_SP_LIBRARIES += \
-    android.hardware.graphics.allocator@2.0
-
 ifdef PLATFORM_VNDK_VERSION
 vndk_sp_dir := vndk-sp-$(PLATFORM_VNDK_VERSION)
 else

@@ -672,8 +672,6 @@
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
-
-<!-- Hals below not autodetected. But i added it manually for further proceedings-->
     <hal format="hidl">
         <name>android.hardware.wifi.hostapd</name>
         <transport>hwbinder</transport>
@@ -684,11 +682,20 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>com.qualcomm.qti.ant</name>
+        <name>vendor.qti.hardware.radio.atcmdfwd</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IAntHci</name>
+            <name>IAtCmdFwd</name>
+            <instance>AtCmdFwdService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.tui_comm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITuiComm</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -710,21 +717,13 @@
             <instance>cnd</instance>
         </interface>
     </hal>
+<!-- Hals below not detected.-->
     <hal format="hidl">
-        <name>vendor.qti.hardware.radio.atcmdfwd</name>
+        <name>com.qualcomm.qti.ant</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IAtCmdFwd</name>
-            <instance>AtCmdFwdService</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.tui_comm</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ITuiComm</name>
+            <name>IAntHci</name>
             <instance>default</instance>
         </interface>
     </hal>

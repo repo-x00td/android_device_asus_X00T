@@ -109,6 +109,7 @@ vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 
 # Camera
+-priv-app/SnapdragonCamera/SnapdragonCamera.apk
 vendor/lib/hw/camera.sdm660.so
 vendor/lib/libUBWC.so
 vendor/lib/libarcsoft_arc3dnr_intf.so

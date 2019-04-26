@@ -102,4 +102,14 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
+# Adreno symlink for camera EIS
+GLESV2_ADRENO_SYMLINK := $(TARGET_OUT_VENDOR)/lib/libGLESv2_adreno.so
+$(GLESV2_ADRENO_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "libGLESv2_adreno shared object link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf egl/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(GLESV2_ADRENO_SYMLINK)
+
 endif

@@ -21,7 +21,7 @@ set -e
 DEVICE=X00T
 VENDOR=asus
 
-INITIAL_COPYRIGHT_YEAR=2019
+INITIAL_COPYRIGHT_YEAR=2018
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -43,8 +43,6 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 write_headers
 
 write_makefiles "$MY_DIR"/proprietary-files.txt true
-
-\$(shell mkdir -p \$(TARGET_OUT_VENDOR)/lib/egl && pushd \$(TARGET_OUT_VENDOR)/lib > /dev/null && ln -s egl/libGLESv2_adreno.so libGLESv2_adreno.so && popd > /dev/null)
 
 # Finish
 write_footers

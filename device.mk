@@ -447,6 +447,7 @@ PRODUCT_PACKAGES += \
 
 # WFD
 PRODUCT_PACKAGES += \
+    libaacwrapper \
     libnl
 
 PRODUCT_BOOT_JARS += \

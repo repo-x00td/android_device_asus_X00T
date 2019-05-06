@@ -717,6 +717,15 @@
             <instance>cnd</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.fingerprint</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IQtiExtendedFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 <!-- Hals below not detected.-->
     <hal format="hidl">
         <name>com.qualcomm.qti.ant</name>

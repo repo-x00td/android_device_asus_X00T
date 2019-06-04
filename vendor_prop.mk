@@ -119,10 +119,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.location.osnlp.package=com.google.android.gms \
     ro.location.osnlp.region.package=""
 
-# Huaqin project (need for biometrics service)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hq.project=ZQL1650
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true \

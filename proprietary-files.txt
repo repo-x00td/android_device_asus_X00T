@@ -113,7 +113,6 @@ vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 
 # Camera
--priv-app/SnapdragonCamera/SnapdragonCamera.apk
 vendor/lib/hw/camera.sdm660.so
 vendor/lib/libUBWC.so
 vendor/lib/libarcsoft_arc3dnr_intf.so
@@ -1359,6 +1358,7 @@ vendor/lib64/lib_remote_simlock.so
 -app/imssettings/imssettings.apk
 -app/uceShimService/uceShimService.apk
 framework/vendor.qti.ims.callinfo-V1.0-java.jar
+framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 lib/vendor.qti.ims.callinfo@1.0.so
 lib64/com.qualcomm.qti.imscmservice@1.0.so
 lib64/com.qualcomm.qti.imscmservice@2.0.so

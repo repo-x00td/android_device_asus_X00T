@@ -20,10 +20,6 @@ import org.lineageos.internal.util.FileUtils;
 
 import lineageos.hardware.TouchscreenGesture;
 
-import java.util.Properties;
-import android.util.Log;
-import java.util.Arrays;
-
 /**
  * Touchscreen gestures API
  *
@@ -41,21 +37,9 @@ import java.util.Arrays;
  */
 public class TouchscreenGestures {
 
-    private static final String GESTURE_PATH =
-            "/sys/kernel/touchpanel/gesture_node";
+    private static final String GESTURE_PATH = "/sys/kernel/touchpanel/gesture_node";
 
-    private static final String PROP_GESTURE_TYPE =
-            "persist.asus.gesture.type";
-
-    private static final int[] gestures_support = {
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-    };
+    private static final int[] ges_buff = new int[10];
 
     // Id, name, keycode
     private static final TouchscreenGesture[] TOUCHSCREEN_GESTURES = {
@@ -65,17 +49,10 @@ public class TouchscreenGestures {
         new TouchscreenGesture(3, "Letter V", 252),
         new TouchscreenGesture(4, "Letter W", 253),
         new TouchscreenGesture(5, "Letter Z", 254),
-        new TouchscreenGesture(6, "Swipe Up", 255),
-    };
-
-    public static final int[] ALL_GESTURE_MASKS = {
-        0x110, // c gesture mask
-        0x120, // e gesture mask
-        0x140, // s gesture mask
-        0x104, // v gesture mask
-        0x180, // w gesture mask
-        0x108, // z gesture mask
-	0x102, //slide up gesture mask
+        new TouchscreenGesture(6, "One finger up swipe", 255),
+        new TouchscreenGesture(7, "One finger down swipe", 256),
+        new TouchscreenGesture(8, "One finger left swipe", 257),
+        new TouchscreenGesture(9, "One finger right swipe", 258),
     };
 
     /**
@@ -84,17 +61,11 @@ public class TouchscreenGestures {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-
-/*
-	Note : use proper true/false
-*/
-	if(FileUtils.isFileWritable(GESTURE_PATH) &&
-                FileUtils.isFileReadable(GESTURE_PATH)) {
-	        Log.i("Gestures Init : ", "True");
-	} else {
-	        Log.i("Gestures Init : ", "False");
-	}
-	return true;
+        if (!FileUtils.isFileWritable(GESTURE_PATH) ||	
+                !FileUtils.isFileReadable(GESTURE_PATH)) {
+            return false;
+        }
+        return true;
     }
 
     /*
@@ -118,24 +89,23 @@ public class TouchscreenGestures {
      */
     public static boolean setGestureEnabled(
             final TouchscreenGesture gesture, final boolean state) {
-        Properties props = new Properties();
-        int gestures_off = 1;
-        if (state) {
-            FileUtils.writeLine(GESTURE_PATH, "1");
-            gestures_support[gesture.id] = 1;
-            props.setProperty(PROP_GESTURE_TYPE, Arrays.toString(gestures_support));
-        } else {
-            gestures_support[gesture.id] = 0;
-            props.setProperty(PROP_GESTURE_TYPE, Arrays.toString(gestures_support));
-            for (int is_on : gestures_support) {
-                if ( is_on == 1 ) {
-                    gestures_off = 0;
-                }
-            }
-            if (gestures_off == 1) {
-                FileUtils.writeLine(GESTURE_PATH, "0");
+        final int gesState = state ? 1 : 0;
+        int is_on = 0;
+        ges_buff[gesture.id] = gesState;
+
+        for (int i : ges_buff) {
+            if (i == 1) {
+            	is_on=1;
+            	break;
             }
         }
+
+        if (is_on != 0 ) {
+            FileUtils.writeLine(GESTURE_PATH, "1");
+        } else {
+            FileUtils.writeLine(GESTURE_PATH, "0");
+        }
+
         return true;
     }
 }

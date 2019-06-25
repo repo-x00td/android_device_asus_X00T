@@ -110,10 +110,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.rotator_downscale=1 \
     vendor.display.enable_default_color_mode=1
 
-# LED
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.asus.led.on=1
-
 # Location
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.location.osnlp.package=com.google.android.gms \
@@ -228,11 +224,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # System prop for UBWC
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.video.disable.ubwc=1
-
-# Tap to Wake
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.asus.dclick=1 \
-    persist.asus.gesture.type=1000000
 
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \

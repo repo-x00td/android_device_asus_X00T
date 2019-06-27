@@ -50,9 +50,6 @@ public class TouchscreenGestures {
         new TouchscreenGesture(4, "Letter W", 253),
         new TouchscreenGesture(5, "Letter Z", 254),
         new TouchscreenGesture(6, "One finger up swipe", 255),
-        new TouchscreenGesture(7, "One finger down swipe", 256),
-        new TouchscreenGesture(8, "One finger left swipe", 257),
-        new TouchscreenGesture(9, "One finger right swipe", 258),
     };
 
     /**

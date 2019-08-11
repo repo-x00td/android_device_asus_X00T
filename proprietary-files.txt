@@ -810,6 +810,44 @@ vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
+# Display HAL
+lib/vendor.display.config@1.0.so
+lib/vendor.display.config@1.1.so
+lib/vendor.display.config@1.2.so
+lib/vendor.display.config@1.3.so
+lib/vendor.display.config@1.4.so
+lib/vendor.display.config@1.5.so
+lib64/vendor.display.config@1.1.so
+lib64/vendor.display.config@1.0.so
+lib64/vendor.display.config@1.2.so
+lib64/vendor.display.config@1.3.so
+lib64/vendor.display.config@1.4.so
+lib64/vendor.display.config@1.5.so
+lib/libdisplayconfig.so
+lib/libqdMetaData.system.so
+lib64/libdisplayconfig.so
+lib64/libqdMetaData.system.so
+vendor/lib/hw/gralloc.sdm660.so
+vendor/lib/hw/hwcomposer.sdm660.so
+vendor/lib/hw/memtrack.sdm660.so
+vendor/lib/libdrmutils.so
+vendor/lib/libgpu_tonemapper.so
+vendor/lib/libqdMetaData.so
+vendor/lib/libqdutils.so
+vendor/lib/libqservice.so
+vendor/lib/libsdmcore.so
+vendor/lib/libsdmutils.so
+vendor/lib64/hw/gralloc.sdm660.so
+vendor/lib64/hw/hwcomposer.sdm660.so
+vendor/lib64/hw/memtrack.sdm660.so
+vendor/lib64/libdrmutils.so
+vendor/lib64/libgpu_tonemapper.so
+vendor/lib64/libqdMetaData.so
+vendor/lib64/libqdutils.so
+vendor/lib64/libqservice.so
+vendor/lib64/libsdmcore.so
+vendor/lib64/libsdmutils.so
+
 # Display calibration
 vendor/etc/qdcm_calib_data_nt36672_1080p_video_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_nt36672_1080p_video_mode_dsi_txd_panel.xml
@@ -906,6 +944,10 @@ vendor/bin/hw/android.hardware.drm@1.1-service.widevine
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
 vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
+vendor/lib/liboemcrypto.so
+vendor/lib64/liboemcrypto.so
+vendor/lib/libhdcpsrm.so
+vendor/lib64/libhdcpsrm.so
 
 # ESE-Powermanager
 lib64/vendor.qti.esepowermanager@1.0.so

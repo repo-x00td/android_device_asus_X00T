@@ -1390,10 +1390,6 @@ vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/radio/qcril_database/qcril.db
-vendor/radio/qcril_database/upgrade/0_initial.sql
-vendor/radio/qcril_database/upgrade/1_version_intro.sql
-vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql
-vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
 vendor/lib64/lib_remote_simlock.so
 
 # Radio (IMS)

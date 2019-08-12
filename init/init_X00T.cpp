@@ -125,7 +125,7 @@ void vendor_check_variant()
     else
         product_model = "ZB601KL";
 
-    if (strcmp(product_name, "WW_X00TD"))
+    if (!strcmp(product_name, "WW_X00TD"))
         property_override("ro.build.description", "sdm660_64-user 9 PKQ1 1261 release-keys"); //for 056 WW ROM
 
     // Override props based on values set

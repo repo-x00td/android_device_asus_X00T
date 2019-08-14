@@ -244,7 +244,11 @@ PROTOBUF_SUPPORTED := true
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2019-06-05
+# After June Google register fingerprints with security patch version.
+# Asus Pie 055 fingerprint registered on this patch version
+# For vendor partition build #055 have year equals 2018 (WTF ASUS?)
+VENDOR_SECURITY_PATCH := 2018-06-05
+PLATFORM_SECURITY_PATCH := 2019-06-05
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

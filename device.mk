@@ -411,7 +411,6 @@ PRODUCT_COPY_FILES += \
 
 # Touchscreen
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.asus_X00T \
     libtinyxml2
 
 # Trust HAL

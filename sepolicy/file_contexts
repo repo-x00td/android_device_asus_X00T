@@ -23,4 +23,4 @@
 /vendor/bin/init\.qcom\.ipastart\.sh                                    u:object_r:init-qcom-ipastart-sh_exec:s0
 
 # Touch HAL
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.X00T                    u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.X00T                    u:object_r:hal_fingerprint_default_exec:s0

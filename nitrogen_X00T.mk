@@ -19,8 +19,29 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
-# Inherit some common Havoc stuff
-$(call inherit-product, vendor/havoc/config/common.mk)
+# Inherit some common Nitrogen stuff
+$(call inherit-product, vendor/nitrogen/products/common.mk)
+$(call inherit-product, vendor/nitrogen/config/qcom_target.mk)
+TARGET_SCREEN_WIDTH := 1080
+
+TARGET_USES_MKE2FS := true
+
+# Dalvik & HWUI overrides
+$(call inherit-product, vendor/nitrogen/config/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product, vendor/nitrogen/config/phone-xxxhdpi-3072-hwui-memory.mk)
+
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8998
+
+# Long screenshot
+PRODUCT_PACKAGES += \
+    Longshot
+	
+USE_DEVICE_SPECIFIC_DISPLAY := true
+DEVICE_SPECIFIC_DISPLAY_PATH := hardware/qcom/display-caf-msm8998
+USE_DEVICE_SPECIFIC_AUDIO := true
+DEVICE_SPECIFIC_AUDIO_PATH := hardware/qcom/audio-caf-msm8998
+USE_DEVICE_SPECIFIC_MEDIA := true
+DEVICE_SPECIFIC_MEDIA_PATH := hardware/qcom/media-caf-msm8998
 
 # Inherit from X00T device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -28,7 +49,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := asus
 PRODUCT_DEVICE := X00T
 PRODUCT_MANUFACTURER := asus
-PRODUCT_NAME := havoc_X00T
+PRODUCT_NAME := nitrogen_X00T
 PRODUCT_MODEL := ZenFone Max Pro M1
 
 PRODUCT_GMS_CLIENTID_BASE := android-asus
